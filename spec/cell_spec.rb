@@ -192,7 +192,7 @@ RSpec.describe Cell do
     cruiser.hit
     cruiser.hit
 
-    expect(cell_2).to eq("X")
+    expect(cell_2.render).to eq("X")
   end
 
 end
