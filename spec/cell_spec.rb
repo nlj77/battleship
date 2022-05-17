@@ -9,7 +9,6 @@ RSpec.describe Cell do
     expect(cell).to be_instance_of(Cell)
   end
 
- 
   it 'has an assigned coordinate' do
     cell = Cell.new("B4")
 
@@ -50,7 +49,7 @@ RSpec.describe Cell do
     cruiser = Ship.new("Cruiser", 3)
     cell.place_ship(cruiser)
 
-    expect(cell.empty?).to eq(true)
+    expect(cell.empty?).to eq(false)
   end
 #Second part of cell interaction pattern is bellow
 
@@ -111,7 +110,7 @@ RSpec.describe Cell do
   it 'renders coordinate' do
     cell_1 = Cell.new("B4")
 
-    expect(cell_1.render).eq(".")
+    expect(cell_1.render).to eq(".")
   end
 
   it 'fire_upon affects render' do
