@@ -14,7 +14,8 @@ def sunk?
 end
 
 def hit
-  health -= 1
+  #changed 'health' to '@health' to get method to pass
+  @health -= 1
 end
 
 end
