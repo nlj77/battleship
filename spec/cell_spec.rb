@@ -136,4 +136,63 @@ RSpec.describe Cell do
 
     expect(cell_2.render).to eq(".")
   end
+
+  it 'render(true) reveals place_ship' do
+    cell_1 = Cell.new("B4")
+    cell_1.fire_upon
+    cell_2 = Cell.new("C3")
+    cruiser = Ship.new("Cruiser", 3)
+    cell_2.place_ship(cruiser)
+
+    expect(cell_2.render(true)).to eq("S")
+  end
+
+  it 'render shows hit with fire_upon' do
+    cell_1 = Cell.new("B4")
+    cell_1.fire_upon
+    cell_2 = Cell.new("C3")
+    cruiser = Ship.new("Cruiser", 3)
+    cell_2.place_ship(cruiser)
+    cell_2.fire_upon
+
+    expect(cell_2.render).to eq("H")
+  end
+
+  it 'sunk?' do
+    cell_1 = Cell.new("B4")
+    cell_1.fire_upon
+    cell_2 = Cell.new("C3")
+    cruiser = Ship.new("Cruiser", 3)
+    cell_2.place_ship(cruiser)
+    cell_2.fire_upon
+
+    expect(cruiser.sunk?).to eq(false)
+  end
+
+  it 'sunk? if hit' do
+    cell_1 = Cell.new("B4")
+    cell_1.fire_upon
+    cell_2 = Cell.new("C3")
+    cruiser = Ship.new("Cruiser", 3)
+    cell_2.place_ship(cruiser)
+    cell_2.fire_upon
+    cruiser.hit
+    cruiser.hit
+
+    expect(cruiser.sunk?).to eq(true)
+  end
+
+  it 'render if sunk?' do
+    cell_1 = Cell.new("B4")
+    cell_1.fire_upon
+    cell_2 = Cell.new("C3")
+    cruiser = Ship.new("Cruiser", 3)
+    cell_2.place_ship(cruiser)
+    cell_2.fire_upon
+    cruiser.hit
+    cruiser.hit
+
+    expect(cell_2).to eq("X")
+  end
+
 end
