@@ -38,4 +38,36 @@ RSpec.describe Ship do
 
     expect(cruiser.health).to eq(2)
   end
+
+  it 'sunk after hit once?' do
+    cruiser = Ship.new("Cruiser", 3)
+    cruiser.hit
+
+    expect(cruiser.sunk?).to eq(false)
+  end
+
+  it 'loses health when hit twice' do
+    cruiser = Ship.new("Cruiser", 3)
+    cruiser.hit
+    cruiser.hit
+
+    expect(cruiser.health).to eq(1)
+  end
+
+  it 'sunk after hit twice?' do
+    cruiser = Ship.new("Cruiser", 3)
+    cruiser.hit
+    cruiser.hit
+
+    expect(cruiser.sunk?).to eq(false)
+  end
+
+  it 'sunk after hit 3 times?' do
+    cruiser = Ship.new("Cruiser", 3)
+    cruiser.hit
+    cruiser.hit
+    cruiser.hit
+
+    expect(cruiser.sunk?).to eq(true)
+  end
 end
