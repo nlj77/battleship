@@ -98,4 +98,42 @@ RSpec.describe Cell do
 
 #Third part of cell interaction pattern is bellow
 
+  it 'exists' do
+    cell_1 = Cell.new("B4")
+
+    expect(cell_1).to be_instance_of(Cell)
+  end
+
+  it 'renders coordinate' do
+    cell_1 = Cell.new("B4")
+
+    expect(cell_1.render).eq(".")
+  end
+
+  it 'fire_upon affects render' do
+    cell_1 = Cell.new("B4")
+    cell_1.fire_upon
+
+    expect(cell_1).to eq("M")
+  end
+
+  it 'exists' do
+    cell_1 = Cell.new("B4")
+    cell_1.fire_upon
+    cell_2 = Cell.new("C3")
+    cruiser = Ship.new("Cruiser", 3)
+
+    expect(cell_2).to be_instance_of(Cell)
+    expect(cruiser).to be_instance_of(Ship)
+  end
+
+  it 'place_ship does not affect render' do
+    cell_1 = Cell.new("B4")
+    cell_1.fire_upon
+    cell_2 = Cell.new("C3")
+    cruiser = Ship.new("Cruiser", 3)
+    cell_2.place_ship(cruiser)
+
+    expect(cell_2.render).to eq(".")
+  end
 end
