@@ -9,7 +9,6 @@ RSpec.describe Cell do
     expect(cell).to be_instance_of(Cell)
   end
 
- 
   it 'has an assigned coordinate' do
     cell = Cell.new("B4")
 
@@ -50,7 +49,7 @@ RSpec.describe Cell do
     cruiser = Ship.new("Cruiser", 3)
     cell.place_ship(cruiser)
 
-    expect(cell.empty?).to eq(true)
+    expect(cell.empty?).to eq(false)
   end
 #Second part of cell interaction pattern is bellow
 
