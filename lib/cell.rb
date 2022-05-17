@@ -7,6 +7,7 @@ class Cell
     @coordinate = coordinate
     @ship = nil
     @fired_upon = false
+    @coordinates = Hash.new
   end
 
   def empty?
@@ -33,4 +34,20 @@ class Cell
       @ship.hit
     end
   end
+
+  def render
+
+    # @ship = ship
+
+    if fired_upon == true && ship.sunk?
+      return "X"
+    elsif fired_upon == true && empty?
+      return "H"
+    elsif fired_upon == true && empty?
+      return "M"
+    else
+      return "."
   end
+end
+
+end
