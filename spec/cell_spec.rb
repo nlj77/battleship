@@ -6,9 +6,10 @@ RSpec.describe Cell do
   it 'exists' do
     cell = Cell.new("B4")
 
-    expect(cell).to be_instance_of(Ship)
+    expect(cell).to be_instance_of(Cell)
   end
 
+ 
   it 'has an assigned coordinate' do
     cell = Cell.new("B4")
 
@@ -27,11 +28,13 @@ RSpec.describe Cell do
     expect(cell.empty?).to eq(true)
   end
 
+
   it 'has an assigned coordinate' do
     cell = Cell.new("B4")
 
     expect(cell.coordinate).to eq("B4")
   end
+
 
   it 'can place_ship' do
     cell = Cell.new("B4")
@@ -40,6 +43,7 @@ RSpec.describe Cell do
 
     expect(cell.ship).to be_instance_of(Ship)
   end
+
 
   it 'shows place_ship fills the coordinate' do
     cell = Cell.new("B4")
@@ -194,5 +198,6 @@ RSpec.describe Cell do
 
     expect(cell_2.render).to eq("X")
   end
+
 
 end
