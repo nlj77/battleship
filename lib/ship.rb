@@ -1,6 +1,6 @@
 class Ship
 
-#Create an attributre reader for the name, length, and health of a Ship
+#Create an attribute reader for the name, length, and health of a Ship
 attr_reader :name, :length, :health
 
 def initialize(name, length)
