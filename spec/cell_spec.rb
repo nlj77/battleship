@@ -110,7 +110,7 @@ RSpec.describe Cell do
   it 'renders coordinate' do
     cell_1 = Cell.new("B4")
 
-    expect(cell_1.render).eq(".")
+    expect(cell_1.render).to eq(".")
   end
 
   it 'fire_upon affects render' do
