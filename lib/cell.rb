@@ -5,9 +5,9 @@ class Cell
 
   def initialize(coordinate)
     @coordinate = coordinate
-    @ship = nil
+    @ship = ()
     @fired_upon = false
-    @coordinates = Hash.new
+
   end
 
   def empty?
@@ -35,16 +35,18 @@ class Cell
     end
   end
 
-  def render
+  def render(ship_reveal = false)
 
     # @ship = ship
 
-    if fired_upon == true && ship.sunk?
-      return "X"
-    elsif fired_upon == true && empty?
-      return "H"
-    elsif fired_upon == true && empty?
+    if fired_upon == true && empty?
       return "M"
+    elsif fired_upon == true && empty? == false && ship.sunk? == false
+      return "H"
+    elsif fired_upon == true && empty? == false && ship.sunk?
+      return "X"
+    elsif ship_reveal == true && empty? == false
+      return "S"
     else
       return "."
   end
