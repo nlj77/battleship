@@ -27,7 +27,7 @@ RSpec.describe Board do
     expect(board.valid_coordinate?("A22")).to eq(false)
   end
 #Valid_placement tests
-  xit "checks ship length vs coordinate count" do
+  it "checks ship length vs coordinate count" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
@@ -36,7 +36,7 @@ RSpec.describe Board do
     expect(board.valid_placement?(submarine, ["A2" , "A3", "A4"])).to eq(false)
   end
 
-  xit "checks if coordinates are consecutive" do
+  it "checks if coordinates are consecutive" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
@@ -47,7 +47,7 @@ RSpec.describe Board do
     expect(board.valid_placement?(submarine, ["C1", "B1"])).to eq(false)
   end
 
-  xit "checks if coordinates are diagonal" do
+  it "checks if coordinates are diagonal" do
       board = Board.new
       cruiser = Ship.new("Cruiser", 3)
       submarine = Ship.new("Submarine", 2)
@@ -55,11 +55,11 @@ RSpec.describe Board do
       expect(board.valid_placement?(cruiser, ["A1" , "B2", "C3"])).to eq(false)
       expect(board.valid_placement?(submarine, ["C2" , "D3"])).to eq(false)
   end
-  xit 'allows placement if checks pass' do
+  it 'allows placement if checks pass' do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
-
+# require "pry"; binding.pry
     expect(board.valid_placement?(submarine, ["A1", "A2"])).to eq(true)
     expect(board.valid_placement?(cruiser, ["B1", "C1", "D1"])).to eq(true)
   end
@@ -90,7 +90,7 @@ RSpec.describe Board do
   end
 
 #Board rendering test
-  xit "text" do
+  xit "renders board?" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
