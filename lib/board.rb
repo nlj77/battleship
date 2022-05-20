@@ -17,7 +17,7 @@ attr_reader :height, :width, :cells, :ships
 
   def create_cells
   #Creates a new hash to hold our coordinates we're making "A1" etc.
-    hash_coordinates = Hash.new
+    @hash_coordinates = Hash.new
   #Creates two ranges. One, our width_range takes how long our grid is (default
   #is 4) Then uses a range to run from 1 to whereever we set (Again default is 4)
     @width_range = 1..@width
@@ -34,17 +34,17 @@ attr_reader :height, :width, :cells, :ships
       @height_range.each do |letters|
 
         coordinate = letters + numbers.to_s
-        hash_coordinates[coordinate] = Cell.new(coordinate)
+        @hash_coordinates[coordinate] = Cell.new(coordinate)
       end
     end
     #returns the created hash for use in our initialize method.
-    return hash_coordinates
+    return @hash_coordinates
   end
 
   # hash_coordinates.keys? = xaxis
   # hash_coordinates.values? = yaxis
   def valid_coordinate?(coordinate)
-    hash_coordinates.key?(coordinate)
+    @hash_coordinates.key?(coordinate)
   end
 
   def valid_placement?

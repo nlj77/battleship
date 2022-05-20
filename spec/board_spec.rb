@@ -27,7 +27,7 @@ RSpec.describe Board do
     expect(board.valid_coordinate?("A22")).to eq(false)
   end
 #Valid_placement tests
-  it "checks ship length vs coordinate count" do
+  xit "checks ship length vs coordinate count" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
@@ -36,7 +36,7 @@ RSpec.describe Board do
     expect(board.valid_placement?(submarine, ["A2" , "A3", "A4"])).to eq(false)
   end
 
-  it "checks if coordinates are consecutive" do
+  xit "checks if coordinates are consecutive" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
@@ -47,7 +47,7 @@ RSpec.describe Board do
     expect(board.valid_placement?(submarine, ["C1", "B1"])).to eq(false)
   end
 
-  it "checks if coordinates are diagonal" do
+  xit "checks if coordinates are diagonal" do
       board = Board.new
       cruiser = Ship.new("Cruiser", 3)
       submarine = Ship.new("Submarine", 2)
@@ -55,7 +55,7 @@ RSpec.describe Board do
       expect(board.valid_placement?(cruiser, ["A1" , "B2", "C3"])).to eq(false)
       expect(board.valid_placement?(submarine, ["C2" , "D3"])).to eq(false)
   end
-  it 'allows placement if checks pass' do
+  xit 'allows placement if checks pass' do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
@@ -65,7 +65,7 @@ RSpec.describe Board do
   end
 
 #Placing Ships tests
-  it "can place ship" do
+  xit "can place ship" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
@@ -80,7 +80,7 @@ RSpec.describe Board do
   end
 
 #Overlapping ship test
-  it "doesn't overlap another ship" do
+  xit "doesn't overlap another ship" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
@@ -90,7 +90,7 @@ RSpec.describe Board do
   end
 
 #Board rendering test
-  it "text" do
+  xit "text" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
