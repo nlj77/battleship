@@ -65,7 +65,7 @@ RSpec.describe Board do
   end
 
 #Placing Ships tests
-  xit "can place ship" do
+  it "can place ship" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
@@ -80,7 +80,7 @@ RSpec.describe Board do
   end
 
 #Overlapping ship test
-  xit "doesn't overlap another ship" do
+  it "doesn't overlap another ship" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
@@ -90,7 +90,7 @@ RSpec.describe Board do
   end
 
 #Board rendering test
-  xit "renders board?" do
+  it "renders board?" do
     board = Board.new
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
