@@ -39,7 +39,7 @@ class Cell
 
     # @ship = ship
 
-    if fired_upon == true && empty?
+    if fired_upon == true && empty? || fired_upon == true && empty? && ship_reveal == true
       return "M"
     elsif fired_upon == true && empty? == false && ship.sunk? == false
       return "H"

@@ -67,8 +67,10 @@ attr_reader :height, :width, :cells, :ships
   def valid_placement?(ship, ship_coords)
     # 1. ship length match # of coordinates?
     # 2. coordinates are in playing board?
-    # 3/4. is ship either COMPLETELY horizontal or COMPLETELY vertical (diagonal test)
-    # 5. does coordinate have a ship in it already?
+    # 3. does coordinate have a ship in it already?
+    # 4. is ship consecutive either COMPLETELY horizontal
+    #    or COMPLETELY vertical (diagonal test).
+
     return false if ship.length != ship_coords.length
     return false if ship_coords.any?{|coordinate| !valid_coordinate?(coordinate)}
     return false if ship_coords.any?{|coordinate| @cells[coordinate].empty? == false}
@@ -82,7 +84,7 @@ attr_reader :height, :width, :cells, :ships
       @cells[coordinate].place_ship(ship)
     end
   end
-  
+
   def render(ship_reveal = false)
     if ship_reveal == false
       return "  1 2 3 4 \n"+ "A #{@cells['A1'].render} #{@cells['A2'].render} #{@cells['A3'].render} #{@cells['A4'].render} \n"+
