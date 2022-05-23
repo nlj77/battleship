@@ -79,6 +79,7 @@ class Game
     player_shot = gets.chomp.upcase.to_s
     until @computer_board.valid_coordinate?(player_shot) == true
       puts "Enter a coordinate within the board."
+      player_shot = gets.chomp.upcase.to_s
     end
 
     @computer_board.cells[player_shot].fire_upon
@@ -89,7 +90,6 @@ class Game
     elsif @computer_board.cells[player_shot].render == "X"
       puts "===You sunk a ship! Make 'em walk the plank!==="
     end
-
 
     puts "==========COMPUTER BOARD=========="
     puts @computer_board.render
@@ -128,6 +128,7 @@ class Game
     else
       player_turn
     end
+    sleep(1)
   end
 
 end
