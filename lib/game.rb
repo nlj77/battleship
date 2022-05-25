@@ -48,7 +48,7 @@ class Game
     @player_cruiser = Ship.new("Cruiser", 3)
     @player_submarine = Ship.new("Submarine", 2)
 
-    puts "Enter the coordinates for your Cruiser (3 units)."
+    puts "Enter the coordinates for your Cruiser (3 units). Put a space between each coordinate."
     player_cruiser_coordinates = gets.chomp.upcase.split(" ")
 
     until @player_board.valid_placement?(@player_cruiser, player_cruiser_coordinates) == true
@@ -60,7 +60,7 @@ class Game
     puts "==========PLAYER BOARD=========="
     puts @player_board.render(true)
 
-    puts "Enter the coordinates for your Submarine (2 units)."
+    puts "Enter the coordinates for your Submarine (2 units). Put a space between each coordinate."
     player_submarine_coordinates = gets.chomp.upcase.split(" ")
 
     until @player_board.valid_placement?(@player_submarine, player_submarine_coordinates) == true
