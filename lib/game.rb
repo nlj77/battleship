@@ -96,8 +96,8 @@ class Game
   def player_turn
     puts "It is your turn, choose a coordinate to fire at."
     player_shot = gets.chomp.upcase.to_s
-    until @computer_board.valid_coordinate?(player_shot) == true
-      puts "Enter a coordinate within the board."
+    until @computer_board.valid_coordinate?(player_shot) == true && @computer_board.cells[player_shot].fired_upon == false
+      puts "Enter a valid coordinate."
       player_shot = gets.chomp.upcase.to_s
     end
 
